@@ -10,9 +10,9 @@ ARG KAFKA_DIST=kafka_2.11-0.10.2.0
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget \
-	&& wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
-    && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
-    && wget -q "http://kafka.apache.org/KEYS" \
+	&& wget -q "https://archive.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
+    && wget -q "https://archive.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
+    && wget -q "https://kafka.apache.org/KEYS" \
     && export GNUPGHOME="$(mktemp -d)" \
     && gpg --import KEYS \
     && gpg --batch --verify "$KAFKA_DIST.tgz.asc" "$KAFKA_DIST.tgz" \
